@@ -1,0 +1,13 @@
+Package: DTMdemo
+Type: Package
+Title: Basic DTM-Density Analysis
+Version: 1.0.0
+Author: Christoph Weitkamp
+Maintainer:  Christoph Weitkamp <cweitka@mathematik.uni-goettingen.de>
+Description: Implementation of basic tools for the estimation and analysis of DTM-densities as proposed in the paper "From Small Scales to Large Scales: Distance-to-Measure Density based Geometric Analysis of Complex Data" (see https://arxiv.org/abs/2205.07689).
+License: GPL (>= 2)
+Encoding: UTF-8
+Depends: TDA (>= 1.8.7)
+Imports: Rdpack (>= 0.7), stats (>= 4.0)
+RoxygenNote: 7.2.1
+RdMacros: Rdpack
