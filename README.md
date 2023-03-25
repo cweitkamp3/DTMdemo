@@ -5,7 +5,7 @@ It is the basis for all simulation presented in said paper.
 
 ## Installation
 
-In order to install this package, run
+In order to install this package, run:
 
 ```R
 library(devtools)
