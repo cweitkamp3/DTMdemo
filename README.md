@@ -33,8 +33,9 @@ disc[,2]= r*sin(theta)
 
 sample = list(square, disc)
 
-den.list=DTM.density(sample, m=1)
-plot(den.list[[1]], ylim =c(0,5), main = "")
+den.list = DTM.density(sample, m = 1)
+
+plot(den.list[[1]], ylim = c(0,5), main = "")
 lines(den.list[[2]], col = "red")
 ```
 Clearly, it is important to be able to compare different DTM-densities. As proposed in [Weitkamp et al. (2022)](https://arxiv.org/abs/2205.07689) this can be achieved
