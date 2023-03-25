@@ -1,6 +1,6 @@
 # DTMdemo
 
-This packages implements tools for the analysis of Distance-to-Measure (DTM)-densities proposed in [Weitkamp et al. (2022)](https://arxiv.org/abs/2205.07689).
+This packages implements tools for the calculation and analysis of Distance-to-Measure (DTM)-densities proposed in [Weitkamp et al. (2022)](https://arxiv.org/abs/2205.07689).
 It is the basis for all simulation presented in said paper.
 
 ## Installation
