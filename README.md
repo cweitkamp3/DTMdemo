@@ -12,7 +12,7 @@ library(devtools)
 install_github("cweitkamp3/DTMdemo")
 ```
 ## Usage
-In the following, we illuatrate the usage of the main functions. First of all the note that the (r'th power of the) emprical DTM-function [Chazal et al. (2016)](https://www.jmlr.org/papers/v18/15-484.html)
+In the following, we illuatrate the usage of the main functions. First of all the note that the (r'th power of the) emprical DTM-function (see [Chazal et al. (2016)](https://www.jmlr.org/papers/v18/15-484.html) fo a formal definition)
 for all points in a sample can be calculated like this:
 ```R
 square = matrix(0,n,2)
