@@ -38,7 +38,7 @@ plot(den.list[[1]], ylim =c(0,5), main = "")
 lines(den.list[[2]], col = "red")
 ```
 Clearly, it is important to be able to compare different DTM-densities. As proposed in [Weitkamp et al. (2022)](https://arxiv.org/abs/2205.07689) this can be achieved
-with the L1-distance. An approximated L1-distance matrix between all elements of a lsit of DTM-densities can be calculated like this:
+with the L1-distance. An approximated L1-distance matrix between all elements of a list of DTM-densities can be calculated like this:
 ```R
 dist.mat = L1.density.dist(den.list, 0, 1)
 ```
