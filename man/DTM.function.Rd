@@ -39,3 +39,8 @@ sample = list(square, disc)
 
 DTM.function(sample, m=1)
 }
+\references{
+{
+  \insertAllCited{}
+}
+}
