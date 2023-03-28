@@ -5,6 +5,9 @@
 #' @param r Parameter in the definition of the general DTM-function
 #' @return
 #' The function returns a vector that contains the DTM-function evaluated at every point in the input sample.
+#' @references{
+#'   \insertAllCited{}
+#' }
 #' @importFrom TDA dtm
 #' @importFrom Rdpack reprompt
 #' @noRd
@@ -40,6 +43,9 @@ DTM.function.helper<-function(sample,m,r=2){
 #' sample = list(square, disc)
 #'
 #' DTM.function(sample, m=1)
+#' @references{
+#'   \insertAllCited{}
+#' }
 #' @importFrom Rdpack reprompt
 #' @export
 DTM.function<-function(sample,m,r=2){
@@ -64,6 +70,9 @@ DTM.function<-function(sample,m,r=2){
 #' Returns an estimator for the DTM-density proposed in \insertCite{proksch2022small;textual}{DTMdemo} for the given sample (i.e., an object of class "\code{\link[stats]{density}}").
 #'
 #' If \code{full_return} is \code{TRUE} a list with two components is returned. It contains the the DTM-function evaluated at each sample point ("\code{dtm}") and the corresponding kernel density estimator ("\code{kde}").
+#' @references{
+#'   \insertAllCited{}
+#' }
 #' @importFrom TDA dtm
 #' @importFrom stats density
 #' @noRd
@@ -115,7 +124,7 @@ DTM.density.helper<-function(sample,m,r=2, kernel = "biweight", bw = "SJ", full_
 #' den.list=DTM.density(sample, m=1)
 #' plot(den.list[[1]], ylim =c(0,5), main = "")
 #' lines(den.list[[2]], col = "red")
-#'@references{
+#' @references{
 #'   \insertAllCited{}
 #' }
 #' @importFrom Rdpack reprompt
