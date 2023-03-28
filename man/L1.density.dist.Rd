@@ -20,21 +20,21 @@ The function returns an estimate for the absolute integrated difference matrix f
 Calculate the L1-distance distance matrix for a list of objects with class "\code{\link[stats]{density}}".
 }
 \examples{
-n= 1000
+n = 1000
 
-square = matrix(0,n,2)
-square[,1] = runif(n,0,1)
-square[,2] = runif(n,0,1)
+square <- matrix(0,n,2)
+square[,1] <- runif(n,0,1)
+square[,2] <- runif(n,0,1)
 
-disc = matrix(0,n,2)
-radius = 0.5
-r = radius*sqrt(runif(n,0,1))
-theta = runif(n,0,1)*2*pi
-disc[,1]= r*cos(theta)
-disc[,2]= r*sin(theta)
+disc <- matrix(0,n,2)
+radius <- 0.5
+r <- radius*sqrt(runif(n,0,1))
+theta <- runif(n,0,1)*2*pi
+disc[,1] <- r*cos(theta)
+disc[,2] <- r*sin(theta)
 
-sample = list(square, disc)
+sample <- list(square, disc)
 
-den.list = DTM.density(sample, m=1)
-L1.density.dist(den.list, 0,1)
+den.list <- DTM.density(sample, m = 1)
+L1.density.dist(den.list, 0, 1)
 }

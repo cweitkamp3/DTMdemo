@@ -22,22 +22,22 @@ If \code{sample} is a list of input matrices, then a list containing the return 
 This function calculates the (r'th power of the) empirical DTM-function (see \insertCite{chazal2016rates;textual}{DTMdemo} for a definition) for all points in a given sample.  It is a wrapper for \code{\link[TDA]{dtm}}.
 }
 \examples{
-n= 1000
+n <- 1000
 
-square = matrix(0,n,2)
-square[,1] = runif(n,0,1)
-square[,2] = runif(n,0,1)
+square <- matrix(0,n,2)
+square[,1] <- runif(n,0,1)
+square[,2] <- runif(n,0,1)
 
-disc = matrix(0,n,2)
-radius = 0.5
-r = radius*sqrt(runif(n,0,1))
-theta = runif(n,0,1)*2*pi
-disc[,1]= r*cos(theta)
-disc[,2]= r*sin(theta)
+disc <- matrix(0,n,2)
+radius <- 0.5
+r <- radius*sqrt(runif(n,0,1))
+theta <- runif(n,0,1)*2*pi
+disc[,1] <- r*cos(theta)
+disc[,2] <- r*sin(theta)
 
-sample = list(square, disc)
+sample <- list(square, disc)
 
-DTM.function(sample, m=1)
+DTM.function(sample, m = 1)
 }
 \references{
 {

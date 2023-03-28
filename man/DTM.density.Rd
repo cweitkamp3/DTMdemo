@@ -43,23 +43,23 @@ Given a n x d coordinate matrix, the (r'th power of the) empirical DTM-function 
  If the input is a list of coordinate matrices, this procedure is repeated for every entry of the list.
 }
 \examples{
-n= 1000
+n <- 1000
 
-square = matrix(0,n,2)
-square[,1] = runif(n,0,1)
-square[,2] = runif(n,0,1)
+square <- matrix(0,n,2)
+square[,1] <- runif(n,0,1)
+square[,2] <- runif(n,0,1)
 
-disc = matrix(0,n,2)
-radius = 0.5
-r = radius*sqrt(runif(n,0,1))
-theta = runif(n,0,1)*2*pi
-disc[,1]= r*cos(theta)
-disc[,2]= r*sin(theta)
+disc <- matrix(0,n,2)
+radius <- 0.5
+r <- radius*sqrt(runif(n,0,1))
+theta <- runif(n,0,1)*2*pi
+disc[,1] <- r*cos(theta)
+disc[,2] <- r*sin(theta)
 
-sample = list(square, disc)
+sample <- list(square, disc)
 
-den.list=DTM.density(sample, m=1)
-plot(den.list[[1]], ylim =c(0,5), main = "")
+den.list <- DTM.density(sample, m = 1)
+plot(den.list[[1]], ylim = c(0, 5), main = "")
 lines(den.list[[2]], col = "red")
 }
 \references{

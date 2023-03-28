@@ -11,8 +11,8 @@
 #' @importFrom TDA dtm
 #' @importFrom Rdpack reprompt
 #' @noRd
-DTM.function.helper<-function(sample,m,r=2){
-  dtmP_2 = (dtm(X = sample, Grid = sample, m0 = m, r = r))^r
+DTM.function.helper <- function(sample, m, r = 2){
+  dtmP_2 <- (dtm(X = sample, Grid = sample, m0 = m, r = r))^r
   return(dtmP_2 )
 }
 
@@ -27,32 +27,32 @@ DTM.function.helper<-function(sample,m,r=2){
 #'
 #' If \code{sample} is a list of input matrices, then a list containing the return of each input matrix is returned.
 #' @examples
-#' n= 1000
+#' n <- 1000
 #'
-#' square = matrix(0,n,2)
-#' square[,1] = runif(n,0,1)
-#' square[,2] = runif(n,0,1)
+#' square <- matrix(0,n,2)
+#' square[,1] <- runif(n,0,1)
+#' square[,2] <- runif(n,0,1)
 #'
-#' disc = matrix(0,n,2)
-#' radius = 0.5
-#' r = radius*sqrt(runif(n,0,1))
-#' theta = runif(n,0,1)*2*pi
-#' disc[,1]= r*cos(theta)
-#' disc[,2]= r*sin(theta)
+#' disc <- matrix(0,n,2)
+#' radius <- 0.5
+#' r <- radius*sqrt(runif(n,0,1))
+#' theta <- runif(n,0,1)*2*pi
+#' disc[,1] <- r*cos(theta)
+#' disc[,2] <- r*sin(theta)
 #'
-#' sample = list(square, disc)
+#' sample <- list(square, disc)
 #'
-#' DTM.function(sample, m=1)
+#' DTM.function(sample, m = 1)
 #' @references{
 #'   \insertAllCited{}
 #' }
 #' @importFrom Rdpack reprompt
 #' @export
-DTM.function<-function(sample,m,r=2){
+DTM.function <- function(sample, m, r = 2){
   if(is.list(sample)){
-    res = lapply(sample,DTM.function.helper, m=m, r=r)
+    res <- lapply(sample,DTM.function.helper, m = m, r = r)
   } else {
-    res = DTM.function.helper(sample,m,r)
+    res <- DTM.function.helper(sample, m, r)
   }
   return(res)
 }
@@ -76,13 +76,13 @@ DTM.function<-function(sample,m,r=2){
 #' @importFrom TDA dtm
 #' @importFrom stats density
 #' @noRd
-DTM.density.helper<-function(sample,m,r=2, kernel = "biweight", bw = "SJ", full_return = F, ...){
-  dtmP_2 = (dtm(X = sample, Grid = sample, m0 = m, r = r))^r
-  dtm.density = density(dtmP_2,kernel=kernel , bw = bw, ...)
+DTM.density.helper <- function(sample, m, r = 2, kernel = "biweight", bw = "SJ", full_return = F, ...){
+  dtmP_2 <- (dtm(X = sample, Grid = sample, m0 = m, r = r))^r
+  dtm.density <- density(dtmP_2, kernel = kernel, bw = bw, ...)
   if(full_return){
-    res = list("dtm"=  dtmP_2,"kde"=  dtm.density)
+    res <- list("dtm" = dtmP_2, "kde" = dtm.density)
   } else {
-    res = dtm.density
+    res <- dtm.density
   }
   return(res)
 }
@@ -106,23 +106,23 @@ DTM.density.helper<-function(sample,m,r=2, kernel = "biweight", bw = "SJ", full_
 #'
 #' If \code{sample} is a list of input matrices, then a list containing the return of each input matrix is returned.
 #' @examples
-#' n= 1000
+#' n <- 1000
 #'
-#' square = matrix(0,n,2)
-#' square[,1] = runif(n,0,1)
-#' square[,2] = runif(n,0,1)
+#' square <- matrix(0,n,2)
+#' square[,1] <- runif(n,0,1)
+#' square[,2] <- runif(n,0,1)
 #'
-#' disc = matrix(0,n,2)
-#' radius = 0.5
-#' r = radius*sqrt(runif(n,0,1))
-#' theta = runif(n,0,1)*2*pi
-#' disc[,1]= r*cos(theta)
-#' disc[,2]= r*sin(theta)
+#' disc <- matrix(0,n,2)
+#' radius <- 0.5
+#' r <- radius*sqrt(runif(n,0,1))
+#' theta <- runif(n,0,1)*2*pi
+#' disc[,1] <- r*cos(theta)
+#' disc[,2] <- r*sin(theta)
 #'
-#' sample = list(square, disc)
+#' sample <- list(square, disc)
 #'
-#' den.list=DTM.density(sample, m=1)
-#' plot(den.list[[1]], ylim =c(0,5), main = "")
+#' den.list <- DTM.density(sample, m = 1)
+#' plot(den.list[[1]], ylim = c(0, 5), main = "")
 #' lines(den.list[[2]], col = "red")
 #' @references{
 #'   \insertAllCited{}
@@ -130,13 +130,13 @@ DTM.density.helper<-function(sample,m,r=2, kernel = "biweight", bw = "SJ", full_
 #' @importFrom Rdpack reprompt
 #' @export
 
-DTM.density<-function(sample,m,r=2, kernel = "biweight", bw = "SJ", full_return = F, ...){
+DTM.density <- function(sample, m, r = 2, kernel = "biweight", bw = "SJ", full_return = F, ...){
   if(is.list(sample)){
-    res = lapply(sample, DTM.density.helper, m=m, r=r, kernel = kernel, bw = bw, full_return=full_return, ...)
+    res <- lapply(sample, DTM.density.helper, m = m, r = r, kernel = kernel, bw = bw, full_return = full_return, ...)
   } else {
-    res = DTM.density.helper(sample, m=m, r=r, kernel = kernel, bw = bw, full_return=full_return, ...)
+    res <- DTM.density.helper(sample, m = m, r = r, kernel = kernel, bw = bw, full_return = full_return, ...)
   }
-  return(res )
+  return(res)
 }
 
 
@@ -150,13 +150,13 @@ DTM.density<-function(sample,m,r=2, kernel = "biweight", bw = "SJ", full_return 
 #' @importFrom stats integrate
 #' @importFrom stats approxfun
 #' @noRd
-L1.dist <- function(den.one, den.two, lower , upper,...){
+L1.dist <- function(den.one, den.two, lower, upper, ...){
   f  <- approxfun(den.one$x, den.one$y)
   g  <- approxfun(den.two$x, den.two$y)
   f2 <- function(v) ifelse(is.na(f(v)), 0, f(v))
-  f3 <- function(v) ifelse(is.na(g(v)), 0,g(v))
-  f4 <- function(v) abs(f2(v)-f3(v))
-  res=integrate(f4, lower,upper, ...)$value
+  f3 <- function(v) ifelse(is.na(g(v)), 0, g(v))
+  f4 <- function(v) abs(f2(v) - f3(v))
+  res <- integrate(f4, lower, upper, ...)$value
   return(res)
 }
 
@@ -169,39 +169,29 @@ L1.dist <- function(den.one, den.two, lower , upper,...){
 #' @return
 #' The function returns an estimate for the absolute integrated difference matrix for the elements in \code{density.list} (integration from \code{lower} to \code{upper}).
 #' @examples
-#' n= 1000
+#' n = 1000
 #'
-#' square = matrix(0,n,2)
-#' square[,1] = runif(n,0,1)
-#' square[,2] = runif(n,0,1)
+#' square <- matrix(0,n,2)
+#' square[,1] <- runif(n,0,1)
+#' square[,2] <- runif(n,0,1)
 #'
-#' disc = matrix(0,n,2)
-#' radius = 0.5
-#' r = radius*sqrt(runif(n,0,1))
-#' theta = runif(n,0,1)*2*pi
-#' disc[,1]= r*cos(theta)
-#' disc[,2]= r*sin(theta)
+#' disc <- matrix(0,n,2)
+#' radius <- 0.5
+#' r <- radius*sqrt(runif(n,0,1))
+#' theta <- runif(n,0,1)*2*pi
+#' disc[,1] <- r*cos(theta)
+#' disc[,2] <- r*sin(theta)
 #'
-#' sample = list(square, disc)
+#' sample <- list(square, disc)
 #'
-#' den.list = DTM.density(sample, m=1)
-#' L1.density.dist(den.list, 0,1)
+#' den.list <- DTM.density(sample, m = 1)
+#' L1.density.dist(den.list, 0, 1)
 #' @importFrom Rdpack reprompt
 #' @export
-L1.density.dist<-function(density.list, lower, upper, ...){
-  k = length(density.list)
-  dist_mat = outer(seq(k), seq(k),
+L1.density.dist <- function(density.list, lower, upper, ...){
+  k <- length(density.list)
+  dist_mat <- outer(seq(k), seq(k),
                    Vectorize(function(i, j) if(i>j){0}else{L1.dist(density.list[[i]], density.list[[j]], lower =lower, upper = upper, ...)})
   )
-  return(dist_mat+t(dist_mat))
+  return(dist_mat + t(dist_mat))
 }
-
-
-
-
-
-
-
-
-
-
